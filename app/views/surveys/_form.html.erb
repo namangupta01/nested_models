@@ -16,6 +16,20 @@
     <%= form.text_field :name %>
   </div>
 
+
+  <%= form.fields_for :survey_problems do |builder| %>
+    <p>
+      <%= builder.label :statement, "Question" %>
+      <%= builder.text_area :statement %>
+    </p>
+    <p>
+      <%= builder.label :required, "Required" %>
+      <%= builder.check_box :required %>
+    </p>
+    <%= builder.label :survey_problem_type %>
+    <%= builder.select :survey_problem_type, [0,1,2] %><br>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

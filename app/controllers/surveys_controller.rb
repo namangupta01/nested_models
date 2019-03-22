@@ -15,6 +15,7 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
+    3.times { @survey.survey_problems.build }
   end
 
   # GET /surveys/1/edit
@@ -24,6 +25,7 @@ class SurveysController < ApplicationController
   # POST /surveys
   # POST /surveys.json
   def create
+    byebug
     @survey = Survey.new(survey_params)
 
     respond_to do |format|
@@ -69,6 +71,6 @@ class SurveysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def survey_params
-      params.require(:survey).permit(:name)
+      params.require(:survey).permit(:name, :survey_problems_attributes => [:required, :survey_id, :survey_problem_type, :statement])
     end
 end
