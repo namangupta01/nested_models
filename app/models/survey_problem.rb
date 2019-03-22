@@ -1,0 +1,2 @@
+class SurveyProblem < ApplicationRecord
+end
