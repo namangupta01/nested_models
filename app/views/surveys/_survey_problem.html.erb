@@ -1,0 +1,15 @@
+<p>
+  <%= f.label :statement, "Question" %>
+  <%= f.text_area :statement %>
+</p>
+<p>
+  <%= f.label :required, "Required" %>
+  <%= f.check_box :required %>
+</p>
+<%= f.label :survey_problem_type %>
+<%= f.select :survey_problem_type, [0,1,2] %>
+<br>
+
+<%= f.fields_for :survey_problem_answers do |builder| %>
+    <%= render 'survey_problem_answer', f:builder%>
+<% end %>
